@@ -13,7 +13,7 @@
 ```c
 # include<stdio.h>
 // For malloc
-# include<stdlib.h> 
+# include<stdlib.h>
 
 // Define the structure
 struct node{
@@ -54,16 +54,138 @@ int main(){
 
 ## II. Insertion in a single linked list
 
-> - Insertion at the beginning
-> - Insertion at the end
-> - Insertion at a specific position
+> 1. Insertion at the beginning
+> 2. Insertion at the end
+> 3. Insertion at a specific position
 
-### Insertion at the beginning
+### 1. Insertion at the beginning
+```c
+# include<stdio.h>
+# include<stdlib.h> // For malloc
 
-### Insertion at the end
+// Define the structure
+struct node{
+  int data;
+  struct node *link;
+};
 
-### Insertion at a specific position
- 
+// Function to create a new node
+struct node* createNode(int value) {
+    struct node *newNode = (struct node*)malloc(sizeof(struct node)); 
+    newNode->data = value; // Assign data to the data part
+    newNode->link = NULL; // Assign NULL to the link part
+    return newNode;
+}
+
+// Function to add a node at the beginning
+struct node* addAtBeginning(struct node *head, int value) {
+    struct node *ptr = (struct node*)malloc(sizeof(struct node));
+    ptr->data = value;
+    ptr->link = head;
+    head = ptr;
+
+    return head;
+}
+
+int main(){
+  // Create a head pointer
+  struct node *head = NULL;
+
+  // Create the first node
+  head = createNode(10);
+  // Create a second node 
+  struct node *temp = createNode(20);
+  // Link the first node to the second node
+  head->link = temp;
+
+  // Add a node at the beginning with value 5
+  head = addAtBeginning(head, 5);
+
+  // Print first node
+  printf("%d -> ", head->data);
+  // Print second node
+  printf("%d -> ", head->link->data);
+  // Print third node
+  printf("%d", head->link->link->data);
+
+  return 0;
+}
+```
+### 2. Insertion at the end
+
+```c
+# include<stdio.h>
+# include<stdlib.h> // For malloc
+
+// Define the structure
+struct node{
+  int data;
+  struct node *link;
+};
+
+// Function to create a new node
+struct node* createNode(int value) {
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    newNode->data = value; // Assign data to the data part
+    newNode->link = NULL; // Assign NULL to the link part
+    return newNode;
+}
+
+void addAtEnd(struct node *head, int data) {
+    struct node *ptr, *temp;
+    ptr = head;
+
+    // Create a new node using createNode function and assign data to it
+    temp = createNode(data);
+
+//--------------------------OR----------------------------/
+    // temp = (struct node*)malloc(sizeof(struct node));
+    // temp->data = data;
+    // temp->link = NULL;
+//------------------------------------------------------/
+
+    while (ptr->link != NULL) {
+        ptr = ptr->link;
+    }
+    ptr->link = temp;
+}
+
+int main(){
+  // Create a head pointer
+  struct node *head = NULL;
+
+  // Create the first node
+  head = createNode(10);
+  // Create a second node
+  struct node *temp = createNode(20);
+  // Link the first node to the second node
+  head->link = temp;
+
+  // Create a third node
+  temp = createNode(30);
+  head->link->link = temp;
+
+
+  // add a node at the end and this is the 4th node
+  addAtEnd(head,999);
+
+
+  // Print first node
+  printf("%d -> ", head->data);
+  // Print second node
+  printf("%d -> ", head->link->data);
+  // Print third node
+  printf("%d", head->link->link->data);
+
+  // Print fourth node
+  printf(" -> %d", head->link->link->link->data);
+
+  return 0;
+}
+```
+
+### 3. Insertion at a specific position
+
 ## III. Deletion in a single linked list
 
 > - Deletion at the beginning
@@ -77,6 +199,7 @@ int main(){
 ### Deletion at a specific position
 
 ## IV. Traversal of a single linked list
+
 > - Traversal in forward direction only
 
 ## V. Merge two single linked lists
