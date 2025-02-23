@@ -59,6 +59,7 @@ int main(){
 > 3. Insertion at a specific position
 
 ### 1. Insertion at the beginning
+
 ```c
 # include<stdio.h>
 # include<stdlib.h> // For malloc
@@ -71,7 +72,7 @@ struct node{
 
 // Function to create a new node
 struct node* createNode(int value) {
-    struct node *newNode = (struct node*)malloc(sizeof(struct node)); 
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));
     newNode->data = value; // Assign data to the data part
     newNode->link = NULL; // Assign NULL to the link part
     return newNode;
@@ -93,7 +94,7 @@ int main(){
 
   // Create the first node
   head = createNode(10);
-  // Create a second node 
+  // Create a second node
   struct node *temp = createNode(20);
   // Link the first node to the second node
   head->link = temp;
@@ -111,6 +112,7 @@ int main(){
   return 0;
 }
 ```
+
 ### 2. Insertion at the end
 
 ```c
@@ -185,6 +187,79 @@ int main(){
 ```
 
 ### 3. Insertion at a specific position
+
+```c
+# include<stdio.h>
+# include<stdlib.h>
+
+// Define the structure
+struct node{
+  int data;
+  struct node *link;
+};
+
+// Function to create a new node
+struct node* createNode(int value) {
+    struct node *newNode = (struct node*)malloc(sizeof(struct node)); // Allocate memory
+
+    // if part is used to check if the memory allocation is successful
+    if (newNode == NULL) {
+        printf("Memory allocation failed!\n");
+        return NULL;
+    }
+    newNode->data = value; // Assign data to the data part
+    newNode->link = NULL; // Assign NULL to the link part
+    return newNode;
+}
+
+
+// Add a node at the Nth position
+void addAtNthPosition(struct node *head, int value, int position) {
+
+    struct node *ptr = head;
+    struct node *temp = (struct node*) malloc(sizeof(struct node));
+    temp->data = value;
+    temp->link = NULL;
+
+    for (int i = 1; i < position; i++) {
+        ptr = ptr->link;
+    }
+    temp->link = ptr->link;
+    ptr->link = temp;
+}
+
+int main(){
+
+  struct node *head = NULL;
+  // Create the first node
+  head = createNode(10);
+  // Create a second node
+  struct node *temp = createNode(20);
+  // Link the first node to the second node
+  head->link = temp;
+
+  // Create a third node
+  temp = createNode(30);
+  head->link->link = temp;
+
+
+  int data = 777;
+  int position = 2;
+  // Add a node at the Nth position
+  addAtNthPosition(head,data,position);
+
+
+  //  Print all the nodes in the linked list
+  printf("%d -> ", head->data); // Print first node
+  printf("%d -> ", head->link->data); // Print second node
+  printf("%d", head->link->link->data); // Print third node
+  printf(" -> %d", head->link->link->link->data); // Print fourth node
+  return 0;
+}
+
+
+
+```
 
 ## III. Deletion in a single linked list
 
