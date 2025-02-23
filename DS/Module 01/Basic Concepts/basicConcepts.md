@@ -1,4 +1,5 @@
-# Basic concepts
+# Basic concepts 
+> **NOTE** Complated in class ✅
 
 ## I. Algorithm Specification.
 
@@ -9,3 +10,4 @@
 ## IV. Asymptotic Notation - Big O, Omega and Theta notations.
 
 ## V. Introduction to Linear and Non Linear data structures.
+
