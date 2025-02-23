@@ -190,7 +190,7 @@ int main(){
 
 ```c
 # include<stdio.h>
-# include<stdlib.h>
+# include<stdlib.h> // For malloc
 
 // Define the structure
 struct node{
@@ -212,20 +212,58 @@ struct node* createNode(int value) {
     return newNode;
 }
 
+// Function to display the linked list
+void display(struct node *head){
+
+   if(head == NULL){
+     printf("Linked list is empty");
+   }
+   else{
+    // Take a temporary pointer ptr
+     struct node *ptr = NULL;
+     ptr = head;
+
+     while(ptr != NULL){
+       printf("%d -> ",ptr->data);
+       ptr = ptr->link;
+     }
+     printf("NULL\n");
+   }
+}
+
+
+
+// Add a node at the beginning
+struct node* addAtBeginning(struct node *head, int value) {
+    // struct node *ptr = createNode(value);
+
+    struct node *ptr = (struct node*)malloc(sizeof(struct node));
+    ptr->data = value;
+    ptr->link = head;
+    head = ptr;
+
+    return head;
+}
+
 
 // Add a node at the Nth position
-void addAtNthPosition(struct node *head, int value, int position) {
-
+struct node* addAtNthPosition(struct node *head, int value, int position) {
     struct node *ptr = head;
     struct node *temp = (struct node*) malloc(sizeof(struct node));
     temp->data = value;
     temp->link = NULL;
+
+    if(position == 1){
+        return addAtBeginning(head,value);
+    }
 
     for (int i = 1; i < position; i++) {
         ptr = ptr->link;
     }
     temp->link = ptr->link;
     ptr->link = temp;
+
+    return head;
 }
 
 int main(){
@@ -233,45 +271,39 @@ int main(){
   struct node *head = NULL;
   // Create the first node
   head = createNode(10);
-  // Create a second node
+
+  // Create a second node 
   struct node *temp = createNode(20);
   // Link the first node to the second node
   head->link = temp;
 
-  // Create a third node
+// Create a third node
   temp = createNode(30);
   head->link->link = temp;
 
-
   int data = 777;
-  int position = 2;
-  // Add a node at the Nth position
-  addAtNthPosition(head,data,position);
+  int position = 3;
+  head = addAtNthPosition(head,data,position);
 
 
   //  Print all the nodes in the linked list
-  printf("%d -> ", head->data); // Print first node
-  printf("%d -> ", head->link->data); // Print second node
-  printf("%d", head->link->link->data); // Print third node
-  printf(" -> %d", head->link->link->link->data); // Print fourth node
+  display(head); // Function call and passing the head pointer as an argument
+
   return 0;
 }
-
-
-
 ```
 
 ## III. Deletion in a single linked list
 
-> - Deletion at the beginning
-> - Deletion at the end
-> - Deletion at a specific position
+> 1. Deletion at the beginning
+> 2. Deletion at the end
+> 3. Deletion at a specific position
 
-### Deletion at the beginning
+### 1. Deletion at the beginning
 
-### Deletion at the end
+### 2. Deletion at the end
 
-### Deletion at a specific position
+### 3. Deletion at a specific position
 
 ## IV. Traversal of a single linked list
 
