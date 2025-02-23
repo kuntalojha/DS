@@ -22,7 +22,7 @@ struct node{
 };
 
 // Function to create a new node
-struct node* createNode(int value) {
+struct node* createNode(int data) {
     struct node *newNode = (struct node*)malloc(sizeof(struct node)); // Allocate memory
     // if part is optional
     // if part is used to check if the memory allocation is successful
@@ -30,7 +30,7 @@ struct node* createNode(int value) {
         printf("Memory allocation failed!\n");
         return NULL;
     }
-    newNode->data = value; // Assign data to the data part
+    newNode->data = data; // Assign data to the data part
     newNode->link = NULL; // Assign NULL to the link part
     return newNode;
 }
@@ -71,17 +71,17 @@ struct node{
 };
 
 // Function to create a new node
-struct node* createNode(int value) {
+struct node* createNode(int data) {
     struct node *newNode = (struct node*)malloc(sizeof(struct node));
-    newNode->data = value; // Assign data to the data part
+    newNode->data = data; // Assign data to the data part
     newNode->link = NULL; // Assign NULL to the link part
     return newNode;
 }
 
 // Function to add a node at the beginning
-struct node* addAtBeginning(struct node *head, int value) {
+struct node* addAtBeginning(struct node *head, int data) {
     struct node *ptr = (struct node*)malloc(sizeof(struct node));
-    ptr->data = value;
+    ptr->data = data;
     ptr->link = head;
     head = ptr;
 
@@ -99,7 +99,7 @@ int main(){
   // Link the first node to the second node
   head->link = temp;
 
-  // Add a node at the beginning with value 5
+  // Add a node at the beginning with data 5
   head = addAtBeginning(head, 5);
 
   // Print first node
@@ -126,9 +126,9 @@ struct node{
 };
 
 // Function to create a new node
-struct node* createNode(int value) {
+struct node* createNode(int data) {
     struct node *newNode = (struct node*)malloc(sizeof(struct node));
-    newNode->data = value; // Assign data to the data part
+    newNode->data = data; // Assign data to the data part
     newNode->link = NULL; // Assign NULL to the link part
     return newNode;
 }
@@ -199,7 +199,7 @@ struct node{
 };
 
 // Function to create a new node
-struct node* createNode(int value) {
+struct node* createNode(int data) {
     struct node *newNode = (struct node*)malloc(sizeof(struct node)); // Allocate memory
 
     // if part is used to check if the memory allocation is successful
@@ -207,7 +207,7 @@ struct node* createNode(int value) {
         printf("Memory allocation failed!\n");
         return NULL;
     }
-    newNode->data = value; // Assign data to the data part
+    newNode->data = data; // Assign data to the data part
     newNode->link = NULL; // Assign NULL to the link part
     return newNode;
 }
@@ -234,11 +234,11 @@ void display(struct node *head){
 
 
 // Add a node at the beginning
-struct node* addAtBeginning(struct node *head, int value) {
-    // struct node *ptr = createNode(value);
+struct node* addAtBeginning(struct node *head, int data) {
+    // struct node *ptr = createNode(data);
 
     struct node *ptr = (struct node*)malloc(sizeof(struct node));
-    ptr->data = value;
+    ptr->data = data;
     ptr->link = head;
     head = ptr;
 
@@ -247,14 +247,14 @@ struct node* addAtBeginning(struct node *head, int value) {
 
 
 // Add a node at the Nth position
-struct node* addAtNthPosition(struct node *head, int value, int position) {
+struct node* addAtNthPosition(struct node *head, int data, int position) {
     struct node *ptr = head;
     struct node *temp = (struct node*) malloc(sizeof(struct node));
-    temp->data = value;
+    temp->data = data;
     temp->link = NULL;
 
     if(position == 1){
-        return addAtBeginning(head,value);
+        return addAtBeginning(head,data);
     }
 
     for (int i = 1; i < position; i++) {
