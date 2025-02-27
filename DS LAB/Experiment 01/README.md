@@ -232,7 +232,6 @@ void display(struct node *head){
 }
 
 
-
 // Add a node at the beginning
 struct node* addAtBeginning(struct node *head, int data) {
     // struct node *ptr = createNode(data);
@@ -245,21 +244,26 @@ struct node* addAtBeginning(struct node *head, int data) {
     return head;
 }
 
-
 // Add a node at the Nth position
-struct node* addAtNthPosition(struct node *head, int data, int position) {
+struct node* addAtNthPosition(struct node *head, int data, int position) {    
     struct node *ptr = head;
+
+    // Create a new node
     struct node *temp = (struct node*) malloc(sizeof(struct node));
     temp->data = data;
     temp->link = NULL;
 
     if(position == 1){
-        return addAtBeginning(head,data);
+        temp->link = head;
+        head = temp;
+
+     return head;
     }
 
-    for (int i = 1; i < position; i++) {
+    for (int i = 1; i < position-1 && ptr != NULL; i++) {
         ptr = ptr->link;
     }
+    
     temp->link = ptr->link;
     ptr->link = temp;
 
@@ -280,7 +284,8 @@ int main(){
 // Create a third node
   temp = createNode(30);
   head->link->link = temp;
-
+  
+  display(head);
   int data = 777;
   int position = 3;
   head = addAtNthPosition(head,data,position);
