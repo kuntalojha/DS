@@ -651,19 +651,24 @@ struct node* insertAtEnd(struct node *head, int data) {
     if (head == NULL) return newNode;
 
     struct node *temp = head;
-    while (temp->link != NULL) temp = temp->link;
+    while (temp->link != NULL){
+        temp = temp->link;
+    }
     temp->link = newNode;
     return head;
 }
 
 // Function to insert at a specific position
 struct node* insertAtPosition(struct node *head, int data, int position) {
-    if (position == 1) return insertAtBeginning(head, data);
+    if (position == 1){
+        return insertAtBeginning(head, data);
+    }
 
     struct node *newNode = createNode(data);
     struct node *temp = head;
-    for (int i = 1; temp != NULL && i < position - 1; i++) temp = temp->link;
-
+    for (int i = 1; temp != NULL && i < position - 1; i++){
+        temp = temp->link;
+    }
     if (temp == NULL) {
         printf("Position out of range.\n");
         return head;
