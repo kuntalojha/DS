@@ -604,18 +604,16 @@ int countNodes(struct node *head) {
 }
 ```
 
-## Final Code
+<h1 style="text-align: center;">Experiment 1:</h1>
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
-
 // Define the structure
 struct node {
     int data;
     struct node *link;
 };
-
 // Function to create a new node
 struct node* createNode(int data) {
     struct node *newNode = (struct node*)malloc(sizeof(struct node));
@@ -637,6 +635,26 @@ void display(struct node *head) {
     }
     printf("NULL\n");
 }
+
+// Function to count the number of nodes in the linked list
+void count (struct node *head){
+
+  int count = 0;
+  if(head == NULL){
+     printf("Linked list is empty");
+   }
+  else{
+    // Take a temporary pointer ptr
+    struct node *ptr = NULL;
+    ptr = head;
+
+    while(ptr != NULL){
+       count++;
+       ptr = ptr->link;
+    }
+    printf("\nNumber of nodes: %d\n",count);
+ }
+ }
 
 // Function to insert at the beginning
 struct node* insertAtBeginning(struct node *head, int data) {
@@ -756,7 +774,8 @@ int main() {
         printf("5. Delete from End\n");
         printf("6. Delete from Position\n");
         printf("7. Display List\n");
-        printf("8. Exit\n");
+        printf("8. Count Nodes\n");
+        printf("9. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -804,6 +823,11 @@ int main() {
                 break;
 
             case 8:
+                printf("Count Nodes ");
+                count(head);
+                break;
+
+            case 9:
                 printf("Exiting program.\n");
                 return 0;
 
@@ -813,7 +837,6 @@ int main() {
     }
     return 0;
 }
-
 ```
 
 ## V. Merge two single linked lists
