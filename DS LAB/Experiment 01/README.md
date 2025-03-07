@@ -604,7 +604,13 @@ int countNodes(struct node *head) {
 }
 ```
 
-<h1 style="text-align: center;">Experiment 1:</h1>
+## Experiment 1:
+
+### Quuestion
+
+- **Write a C program that uses functions to perform the following operations on singly linked list: I. Creation II. Insertion III. Deletion IV. Traversal V. merge two single linked lists**
+
+### Program
 
 ```c
 #include <stdio.h>
@@ -839,4 +845,139 @@ int main() {
 }
 ```
 
+### Output:
+
+```c
+
+```
+
 ## V. Merge two single linked lists
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Node structure
+struct node {
+    int data;
+    struct node* next;
+};
+
+// Function to create a new node
+struct node* createNode(int data) {
+    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to insert at the end of a list
+struct node* insertAtEnd(struct node* head, int data) {
+    struct node* newNode = createNode(data);
+    if (head == NULL) {
+        return newNode;
+    }
+
+    struct node* temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+
+    return head;
+}
+
+// Function to merge two singly linked lists
+struct node* mergeLists(struct node* head1, struct node* head2) {
+    if (head1 == NULL) return head2;
+    if (head2 == NULL) return head1;
+
+    struct node* temp = head1;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = head2;  // Link last node of first list to head of second list
+
+    return head1;
+}
+
+// Function to display the linked list
+void displayList(struct node* head) {
+    struct node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+// Main function with switch-case menu
+int main() {
+    struct node* head1 = NULL;
+    struct node* head2 = NULL;
+    int choice, value;
+
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Insert into First Linked List\n");
+        printf("2. Insert into Second Linked List\n");
+        printf("3. Merge Linked Lists\n");
+        printf("4. Display First Linked List\n");
+        printf("5. Display Second Linked List\n");
+        printf("6. Display Merged Linked List\n");
+        printf("7. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter value to insert into First Linked List: ");
+                scanf("%d", &value);
+                head1 = insertAtEnd(head1, value);
+                break;
+
+            case 2:
+                printf("Enter value to insert into Second Linked List: ");
+                scanf("%d", &value);
+                head2 = insertAtEnd(head2, value);
+                break;
+
+            case 3:
+                head1 = mergeLists(head1, head2);
+                head2 = NULL; // Clear head2 since it's merged
+                printf("Lists merged successfully!\n");
+                break;
+
+            case 4:
+                printf("First Linked List: ");
+                displayList(head1);
+                break;
+
+            case 5:
+                printf("Second Linked List: ");
+                displayList(head2);
+                break;
+
+            case 6:
+                printf("Merged Linked List: ");
+                displayList(head1);
+                break;
+
+            case 7:
+                printf("Exiting program...\n");
+                return 0;
+
+            default:
+                printf("Invalid choice! Please enter a valid option.\n");
+        }
+    }
+
+    return 0;
+}
+```
+
+### Output:
+
+```c
+
+```
