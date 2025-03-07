@@ -847,8 +847,206 @@ int main() {
 
 ### Output:
 
-```c
+```
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 1
+Enter data: 55
 
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 1
+Enter data: 66
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 2
+Enter data: 99
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 7
+Linked List: 66 -> 55 -> 99 -> NULL
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 3
+Enter data: 69
+Enter position: 2
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 7
+Linked List: 66 -> 69 -> 55 -> 99 -> NULL
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 8
+Count Nodes
+Number of nodes: 4
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 4
+First node deleted.
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 7
+Linked List: 69 -> 55 -> 99 -> NULL
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 5
+Last node deleted.
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 7
+Linked List: 69 -> 55 -> NULL
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 6
+Enter position to delete: 3
+Position out of range.
+Node deleted from position 3.
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 6
+Enter position to delete: 1
+Node deleted from position 1.
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 7
+Linked List: 55 -> NULL
+
+Menu:
+1. Insert at Beginning
+2. Insert at End
+3. Insert at Position
+4. Delete from Beginning
+5. Delete from End
+6. Delete from Position
+7. Display List
+8. Count Nodes
+9. Exit
+Enter your choice: 9
+Exiting program.
 ```
 
 ## V. Merge two single linked lists
@@ -978,6 +1176,103 @@ int main() {
 
 ### Output:
 
-```c
+```
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 1
+Enter value to insert into First Linked List: 555
 
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 2
+Enter value to insert into Second Linked List: 666
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 1
+Enter value to insert into First Linked List: 999
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 2
+Enter value to insert into Second Linked List: 888
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 4
+First Linked List: 555 -> 999 -> NULL
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 5
+Second Linked List: 666 -> 888 -> NULL
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 3
+Lists merged successfully!
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 6
+Merged Linked List: 555 -> 999 -> 666 -> 888 -> NULL
+
+Menu:
+1. Insert into First Linked List
+2. Insert into Second Linked List
+3. Merge Linked Lists
+4. Display First Linked List
+5. Display Second Linked List
+6. Display Merged Linked List
+7. Exit
+Enter your choice: 7
+Exiting program...
 ```
