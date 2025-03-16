@@ -8,6 +8,7 @@
 
 ## Program:
 
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -100,7 +101,7 @@ int stack[size]; // Declare stack after size is known
     return 0;
 
 }
-
+```
 ## Output:
 
 ```
@@ -205,8 +206,6 @@ int main() {
     }
     return 0;
 }
-
-
 ```
 
 ## Output:
