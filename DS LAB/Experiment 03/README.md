@@ -12,51 +12,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Push : Insert at top
 int push(int stack[], int top, int data, int size) {
-if (top == size - 1) {
-printf("Stack is full / overflow. Cannot push.\n");
-return top;
-}
-stack[++top] = data;
-return top;
+    if (top == size - 1) {
+        printf("Stack is full / overflow. Cannot push.\n");
+        return top;
+    }
+    stack[++top] = data;
+    return top;
 }
 
+// Pop : Remove from top
 int pop(int top) {
-if (top == -1) {
-printf("Stack is empty / underflow. Cannot pop.\n");
-return top;
-}
-top--;
-return top;
+    if (top == -1) {
+        printf("Stack is empty / underflow. Cannot pop.\n");
+        return top;
+    }
+    top--;
+    return top;
 }
 
-void pick(int stack[], int top) {
-if (top == -1) {
-printf("Stack is empty. Cannot pick.\n");
-return;
-}
-printf("Top element: %d\n", stack[top]);
+// Peek: Show top element
+void peek(int stack[], int top) {
+    if (top == -1) {
+        printf("Stack is empty. Cannot peek.\n");
+        return;
+    }
+    printf("Top element: %d\n", stack[top]);
 }
 
 void display(int stack[], int top) {
-if (top == -1) {
-printf("Stack is empty.\n");
-return;
-}
-
-    printf("Stack: ");
-    for (int i = 0; i <= top; i++) {
-        printf("%d ", stack[i]);
+    int i;
+    if (top == -1) {
+        printf("Stack is empty.\n");
+        return;
     }
-    printf("\n");
 
+    printf("Stack:\n");
+    printf("-----\n");
+    for (i = top; i >= 0; i--) {
+        printf("| %d |\n", stack[i]);
+    }
+    printf("-----\n");
 }
 
 int main() {
-int size;
-printf("Enter the size of the stack: ");
-scanf("%d", &size);
-int stack[size]; // Declare stack after size is known
+    int size;
+    printf("Enter the size of the stack: ");
+    scanf("%d", &size);
+    int stack[size];  // Declaring the stack using array.
 
     int top = -1;
     int choice, data;
@@ -65,7 +69,7 @@ int stack[size]; // Declare stack after size is known
         printf("\nMenu:\n");
         printf("1. Push\n");
         printf("2. Pop\n");
-        printf("3. Pick\n");
+        printf("3. Peek\n");
         printf("4. Display\n");
         printf("5. Exit\n");
         printf("Enter your choice: ");
@@ -83,7 +87,7 @@ int stack[size]; // Declare stack after size is known
                 break;
 
             case 3:
-                pick(stack, top);
+                peek(stack, top);
                 break;
 
             case 4:
@@ -99,12 +103,29 @@ int stack[size]; // Declare stack after size is known
         }
     }
     return 0;
-
 }
+
 ```
+
 ## Output:
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -119,61 +140,52 @@ int stack[size]; // Declare stack after size is known
 #include <stdio.h>
 #include <stdlib.h>
 
-int push(int stack[], int top, int data, int size) {
-    if (top == size - 1) {
-        printf("Stack is full / overflow. Cannot push.\n");
-        return top;
+struct node {
+    int data;
+    struct node *link;
+};
+
+// Push: Insert at top
+struct node* push(struct node *top, int data) {
+    struct node *newNode = (struct node *)malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->link = NULL;
+    newNode->link = top; 
+    return newNode; 
+}
+
+// Pop: Remove from top
+struct node* pop(struct node *top) {
+    struct node *temp = top;
+    if (top == NULL) {
+        printf("Can't pop. Stack is empty / underflow.\n");
+        return NULL;
     }
-    stack[++top] = data;
+    top = top->link; // Move top to next node
+    printf("Popped element: %d\n", temp->data);
+    free(temp); // Free memory
     return top;
 }
 
-int pop(int top) {
-    if (top == -1) {
-        printf("Stack is empty / underflow. Cannot pop.\n");
-        return top;
-    }
-    top--;
-    return top;
-}
-
-void pick(int stack[], int top) {
-    if (top == -1) {
-        printf("Stack is empty. Cannot pick.\n");
-        return;
-    }
-    printf("Top element: %d\n", stack[top]);
-}
-
-void display(int stack[], int top) {
-    if (top == -1) {
+// Peek: Show top element
+void peek(struct node *top) {
+    if (top == NULL) {
         printf("Stack is empty.\n");
         return;
     }
-
-    printf("Stack: ");
-    for (int i = 0; i <= top; i++) {
-        printf("%d ", stack[i]);
-    }
-    printf("\n");
+    printf("Top / Peek element: %d\n", top->data);
 }
 
 int main() {
-    int size;
-    printf("Enter the size of the stack: ");
-    scanf("%d", &size);
-    int stack[size];  // Declare stack after size is known
-
-    int top = -1;
+    struct node *top = NULL; // Empty stack
     int choice, data;
 
     while (1) {
         printf("\nMenu:\n");
         printf("1. Push\n");
         printf("2. Pop\n");
-        printf("3. Pick\n");
-        printf("4. Display\n");
-        printf("5. Exit\n");
+        printf("3. Peek\n");
+        printf("4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -181,7 +193,7 @@ int main() {
             case 1:
                 printf("Enter data: ");
                 scanf("%d", &data);
-                top = push(stack, top, data, size);
+                top = push(top, data);
                 break;
 
             case 2:
@@ -189,14 +201,9 @@ int main() {
                 break;
 
             case 3:
-                pick(stack, top);
+                peek(top);
                 break;
-
             case 4:
-                display(stack, top);
-                break;
-
-            case 5:
                 printf("Exiting program.\n");
                 return 0;
 
@@ -211,6 +218,35 @@ int main() {
 ## Output:
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
