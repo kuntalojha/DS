@@ -1,46 +1,22 @@
----
-outline: deep
----
-
 # Data Structures Lab
 
 ## Experiment 1:
 
 > Write a C program that uses functions to perform the following operations on singly linked list:
->
-> I. Creation.
->
-> II. Insertion.
->
-> III. Traversal.
->
-> IV. Merge two single linked lists.
+> `I. Creation. II. Insertion. III. Traversal. IV. Merge two single linked lists.`
 
 ## Experiment 2:
 
-> Write a C program that uses functions to perform the following operations on doubly linked list.
->
-> I. Creation
->
-> II. Insertion
->
-> III. Deletion
->
-> IV. Traversal
+> Write a C program that uses functions to perform the following operations on doubly linked list. ` I. Creation II. Insertion III. Deletion IV. Traversal`
 
 ## Experiment 3:
 
-> Write a C program that implement stack operations using
->
-> I. Arrays
->
-> II. Linked Lists
+> Write a C program that implement stack operations using `> I. Arrays II. Linked Lists`
 
 ## Experiment 4:
 
-> I. Write a C program to convert infix expression to postfix expression using stack
->
-> II. Write a C program to evaluate postfix expression
+> I. Write a C program to convert infix expression to postfix expression using stack  
+> II. Write a C program to evaluate postfix expression`
 
 ## Experiment 5:
 
@@ -48,21 +24,11 @@ outline: deep
 
 ## Experiment 6:
 
-> Write a C program to implement linear queue using.
->
-> I.Arrays
->
-> II. Linked Lists.
+> Write a C program to implement linear queue using. ` I.Arrays II. Linked Lists.`
 
 ## Experiment 7:
 
-> Write a C program to perform following operations on a circular Queue
->
-> I. Insertion
->
-> II. deletion
->
-> III. search and count
+> Write a C program to perform following operations on a circular Queue ` I. Insertion II. deletion III. search and count`
 
 ## Experiment 8:
 
@@ -95,6 +61,7 @@ outline: deep
 > II. Write a program to implement Merge sort technique
 
 <hr>
+
 # Data Structures
 
 ## Module 1:
@@ -162,3 +129,4 @@ outline: deep
 
 - **Pattern matching** - Introduction, Brute force, the Boyer –Moore algorithm, Knuth-Morris-Pratt
   algorithm.
+
