@@ -140,8 +140,8 @@ int evaluatePostfix(char *expression) {
 
 int main() {
 
-    //char expression[] = "234*+5+";   // Example: 2 + 3 * 4  + 5 = 19
-    char expression[] = "12*2/4+5-";   // Example: 1 * 2 / 2 + 4 - 5 = 0
+    //char expression[] = "12*2/4+5-";   // Example: 1 * 2 / 2 + 4 - 5 = 0
+    char expression[] = "234*+5+";   // Example: 2 + 3 * 4  + 5 = 19
     int result = evaluatePostfix(expression);
     printf("The result after evaluation is: %d\n", result);
 
