@@ -77,10 +77,10 @@ char * reverse(char *str) {
 int main() {
     // char expression[] = "A+B*C+D";
     //char expression[] = "((A+B)-C*(D/E))+F";
-     char expression[] = "1+2*(3+4-5)*(4+2/*3)-7";
+     char expression[] = "1+2*(3+4-5)*(4+2/6*3)-7";
     printf("The infix expression is %s\n",expression);
     // printf("The postfix expression is %s",infixToPostfix(expression));
-    
+
     char *postfix = infixToPostfix(expression);
     // printf("The postfix expression is %s\n",postfix);
 

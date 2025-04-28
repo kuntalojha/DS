@@ -67,7 +67,7 @@ char * infixToPostfix(char * exp)
 }
 
 int main() {
-    // char expression[] = "1+2*(3+4-5)*(4+2/*3)-7";
+    // char expression[] = "1+2*(3+4-5)*(4+2/6*3)-7";
     // char expression[] = "A+B*C+D";
     char expression[] = "((A+B)-C*(D/E))+F";
     printf("The infix expression is %s\n",expression);
