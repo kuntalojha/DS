@@ -1,4 +1,4 @@
-<!-- # Experiment 5:
+# Experiment 5:
 
 ## Question:
 
@@ -63,29 +63,35 @@ char * infixToPostfix(char * exp)
 
 }
 
-char * reverse(char *str) {
-    int n = strlen(str);
-    int i ;
-    for (i = 0; i < n/2; i++) {
-        char temp = str[i];
-        str[i] = str[n-i-1];
-        str[n-i-1] = temp;
-    }
-    return str;
-}
+char * reverse(char *str) { 
+    int n = strlen(str); 
+    int i,j=0 ; 
+    char *m=(char*)malloc(sizeof(char)*n); 
+    for (i = n-1; i >=0; i--) { 
+        char temp = str[i]; 
+        if (temp=='(') 
+           m[j] = ')'; 
+        else if(temp==')') 
+           m[j] = '('; 
+        else{ 
+           m[j]= temp; 
+        } 
+    j++; 
+} 
+    m[n]='\0'; 
+    return m; 
+} 
 
 int main() {
     // char expression[] = "A+B*C+D";
-    //char expression[] = "((A+B)-C*(D/E))+F";
-     char expression[] = "1+2*(3+4-5)*(4+2/6*3)-7";
-    printf("The infix expression is %s\n",expression);
-    // printf("The postfix expression is %s",infixToPostfix(expression));
-
-    char *postfix = infixToPostfix(expression);
-    // printf("The postfix expression is %s\n",postfix);
-
-    char *prefix = reverse(postfix);
-    printf("The prefix expression is %s\n",prefix);
+    // char expression[] = "((A+B)-C*(D/E))+F";
+    char expression[] = "1+2*(3+4-5)*(4+2/6*3)-7";
+    char *revexp,*postfix,*revpost;
+    revexp=reverse(expression); 
+    postfix=(infixToPostfix(revexp));
+    revpost=(reverse(postfix));
+    printf("Infix Expression: %s\n", expression);
+    printf("Prefix Expression: %s\n", revpost);
     return 0;
 }
 ```
@@ -94,4 +100,4 @@ int main() {
 
 ```md
 
-``` -->
+``` 
