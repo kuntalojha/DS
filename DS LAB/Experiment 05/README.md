@@ -45,9 +45,10 @@ char * infixToPostfix(char * exp)
             }
             top--;
         }
+
+
         else {
-            while (top != -1 && (prec(c) < prec(stack[top]) ||      //if the character is operator
-                                 prec(c) == prec(stack[top]))) {
+            while (top != -1 && (prec(c) < prec(stack[top]) || prec(c) == prec(stack[top]))) {
                 result[j++] = stack[top--];
             }
             stack[++top] = c;
@@ -95,6 +96,9 @@ int main() {
     return 0;
 }
 ```
+
+
+<Br>
 
 ## Output:
 
