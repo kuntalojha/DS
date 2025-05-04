@@ -98,6 +98,7 @@ int main() {
 
 ## Output:
 
-```md
-
+```
+Infix Expression: 1+2*(3+4-5)*(4+2/6*3)-7
+Prefix Expression: +1-*2*+3-45+4/2*637
 ``` 
