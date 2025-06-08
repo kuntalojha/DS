@@ -127,7 +127,7 @@ int main() {
 ```
 
 ```
-## I. Linked Lists
+## II. Linked Lists
 
 ## Program:
 
@@ -255,7 +255,6 @@ int main() {
     }
     return 0;
 }
-
 ```
 
 ## Output:
