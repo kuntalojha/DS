@@ -140,6 +140,9 @@ struct node {
     struct node *link;
 };
 
+// Global front and rear pointers
+struct node *front = NULL, *rear = NULL;
+
 // Create a new node
 struct node* createNode(int data) {
     struct node* newNode = (struct node*)malloc(sizeof(struct node));
@@ -149,35 +152,36 @@ struct node* createNode(int data) {
 }
 
 // Enqueue: Insert at rear
-void enqueue(struct node **front, struct node **rear, int data) {
+void enqueue(int data) {
     struct node* newNode = createNode(data);
-    if (*rear == NULL) {
-        *front = *rear = newNode;
+    if (rear == NULL) {
+        front = rear = newNode;
     } else {
-        (*rear)->link = newNode;
-        *rear = newNode;
+        rear->link = newNode;
+        rear = newNode;
     }
+    printf("Enqueued element: %d\n", data);
 }
 
 // Dequeue: Remove from front
-void dequeue(struct node **front, struct node **rear) {
-    if (*front == NULL) {
+void dequeue() {
+    if (front == NULL) {
         printf("Queue is empty.\n");
         return;
     }
-    struct node* temp = *front;
-    *front = (*front)->link;
 
-    // If front becomes NULL, update rear too
-    if (*front == NULL)
-        *rear = NULL;
+    struct node* temp = front;
+    front = front->link;
+
+    if (front == NULL)
+        rear = NULL;
 
     printf("Dequeued element: %d\n", temp->data);
     free(temp);
 }
 
 // Display front element
-void showFront(struct node *front) {
+void showFront() {
     if (front == NULL) {
         printf("Queue is empty.\n");
     } else {
@@ -186,7 +190,7 @@ void showFront(struct node *front) {
 }
 
 // Display rear element
-void showRear(struct node *rear) {
+void showRear() {
     if (rear == NULL) {
         printf("Queue is empty.\n");
     } else {
@@ -195,7 +199,7 @@ void showRear(struct node *rear) {
 }
 
 // Display all elements in the queue
-void displayQueue(struct node *front) {
+void displayQueue() {
     if (front == NULL) {
         printf("Queue is empty.\n");
         return;
@@ -211,7 +215,6 @@ void displayQueue(struct node *front) {
 }
 
 int main() {
-    struct node *front = NULL, *rear = NULL;
     int choice, data;
 
     while (1) {
@@ -229,19 +232,19 @@ int main() {
             case 1:
                 printf("Enter data: ");
                 scanf("%d", &data);
-                enqueue(&front, &rear, data);
+                enqueue(data);
                 break;
             case 2:
-                dequeue(&front, &rear);
+                dequeue();
                 break;
             case 3:
-                showFront(front);
+                showFront();
                 break;
             case 4:
-                showRear(rear);
+                showRear();
                 break;
             case 5:
-                displayQueue(front);
+                displayQueue();
                 break;
             case 6:
                 printf("Exiting program.\n");
@@ -252,6 +255,7 @@ int main() {
     }
     return 0;
 }
+
 ```
 
 ## Output:
