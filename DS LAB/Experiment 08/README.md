@@ -52,7 +52,7 @@ void postOrder(struct Node* node) {
 
 // Main function
 int main() {
-    Create a sample binary tree
+    // Create a sample binary tree
     struct Node* root = newNode(1);
     root->left = newNode(2);
     root->right = newNode(3);
